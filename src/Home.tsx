@@ -1,67 +1,35 @@
-import React from "react";
 import { observer } from "mobx-react-lite";
-import { Layout, Text, Button } from "react-native-ui-kitten";
-import { Image } from "react-native";
-import { Input } from "@src/libs";
-import { useNavigation } from "react-navigation-hooks";
+import React from "react";
+import { View, Text, Image } from "react-native";
+import { useDimensions } from "react-native-hooks";
 
 export default observer(() => {
-  const nav = useNavigation();
+  const dim = useDimensions().window;
   return (
-    <Layout
+    <View
       style={{
-        backgroundColor: "",
-        minHeight: 0,
-        opacity: 0.9,
+        display: "flex",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center",
+        height: dim.height
       }}
     >
       <Image
-        style={{ width: 95, height: 80, marginTop: 42 }}
-        source={require("@src/assets/images/logo.png")}
-      />
-      <Layout
+        source={require("@src/assets/images/cactiva-logo.png")}
         style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginTop: 12
+          height: 80,
+          width: 80,
+          margin: 15
+        }}
+      />
+      <Text
+        style={{
+          fontSize: 18
         }}
       >
-        <Text
-          style={{
-            marginTop: 31,
-            fontSize: 31,
-            lineHeight: 42,
-            color: "#52c1e6",
-            fontFamily: "regular"
-          }}
-          children={"Kasih Ibu"}
-        />
-        <Text
-          style={{
-            marginTop: 31,
-            fontSize: 31,
-            lineHeight: 42,
-            color: "#bece43",
-            fontFamily: "semibold"
-          }}
-          children={" Hospital"}
-        />
-      </Layout>
-      <Input
-        style={{ marginTop: 53, width: 365 }}
-        placeholder={"No. Handphone"}
-      />
-      <Input style={{ marginTop: 13, width: 367 }} placeholder={"PRN"} />
-      <Button
-        style={{ marginTop: 27 }}
-        children={"Sign in"}
-        size={"large"}
-        onPress={() => {
-          nav.navigate("OTP");
-        }}
-      />
-    </Layout>
+        Welcome to Cactiva Base App!
+      </Text>
+    </View>
   );
 });
