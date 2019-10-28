@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
-import { FlatList, Image, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { useDimensions } from "react-native-hooks";
 
 export default observer(() => {
@@ -31,16 +31,6 @@ export default observer(() => {
       >
         Welcome to Cactiva Base App!
       </Text>
-      <FlatList
-        data={[]}
-        renderItem={({ item }: any) => {
-          return (
-            <View>
-              <Text>Text</Text>
-            </View>
-          );
-        }}
-      ></FlatList>
     </View>
   );
 });
