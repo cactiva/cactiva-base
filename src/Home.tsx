@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 import { useDimensions } from "react-native-hooks";
 
 export default observer(() => {
@@ -9,7 +9,7 @@ export default observer(() => {
     <View
       style={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
         height: dim.height
@@ -25,11 +25,22 @@ export default observer(() => {
       />
       <Text
         style={{
-          fontSize: 18
+          fontSize: 18,
+          flexDirection: "column"
         }}
       >
         Welcome to Cactiva Base App!
       </Text>
+      <FlatList
+        data={[]}
+        renderItem={({ item }: any) => {
+          return (
+            <View>
+              <Text>Text</Text>
+            </View>
+          );
+        }}
+      ></FlatList>
     </View>
   );
 });
