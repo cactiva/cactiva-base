@@ -3,7 +3,7 @@ import React from "react";
 import { ScrollView, Text, TouchableOpacity, TextInput } from "react-native";
 import { useDimensions } from "react-native-hooks";
 import { useNavigation } from "react-navigation-hooks";
-import { BottomNavigation, Form, Header, View } from "./libs";
+import { BottomNavigation, Form, Header, View, DefaultTheme } from "./libs";
 import { FormFieldProps } from "./libs/ui/form";
 
 export const menus = [
@@ -86,6 +86,82 @@ export default observer(() => {
       type: "text"
     },
     {
+      key: "select",
+      label: "Pilihan",
+      type: "select",
+      iconStart: {
+        source: "Entypo",
+        name: "users",
+        size: 18
+      },
+      option: {
+        select: {
+          items: [
+            {
+              text: "Option 1",
+              value: "1"
+            },
+            {
+              text: "Optoin 2",
+              value: "2"
+            },
+            {
+              text: "Optoin 3",
+              value: "3"
+            },
+            {
+              text: "Optoin 4",
+              value: "4"
+            },
+            {
+              text: "Optoin 5",
+              value: "5"
+            },
+            {
+              text: "Optoin 6",
+              value: "6"
+            },
+            {
+              text: "Optoin 7",
+              value: "7"
+            },
+            {
+              text: "Optoin 4",
+              value: "4"
+            },
+            {
+              text: "Optoin 5",
+              value: "5"
+            },
+            {
+              text: "Optoin 6",
+              value: "6"
+            },
+            {
+              text: "Optoin 7",
+              value: "7"
+            },
+            {
+              text: "Optoin 4",
+              value: "4"
+            },
+            {
+              text: "Optoin 5",
+              value: "5"
+            },
+            {
+              text: "Optoin 6",
+              value: "6"
+            },
+            {
+              text: "Optoin 7",
+              value: "7"
+            }
+          ]
+        }
+      }
+    },
+    {
       key: "email",
       label: "Email",
       type: "text"
@@ -145,7 +221,8 @@ export default observer(() => {
 
             <TouchableOpacity
               style={{
-                borderRadius: 4
+                borderRadius: 4,
+                backgroundColor: DefaultTheme.primary
               }}
             >
               <Text
@@ -162,7 +239,6 @@ export default observer(() => {
             </TouchableOpacity>
           </View>
         </ScrollView>
-        <TextInput style={{ backgroundColor: "#ccc" }} />
         <BottomNavigation menus={menus} activePath="Dashboard" />
       </View>
     </View>
