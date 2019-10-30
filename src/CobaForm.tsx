@@ -124,38 +124,6 @@ export default observer(() => {
             {
               text: "Optoin 7",
               value: "7"
-            },
-            {
-              text: "Optoin 4",
-              value: "4"
-            },
-            {
-              text: "Optoin 5",
-              value: "5"
-            },
-            {
-              text: "Optoin 6",
-              value: "6"
-            },
-            {
-              text: "Optoin 7",
-              value: "7"
-            },
-            {
-              text: "Optoin 4",
-              value: "4"
-            },
-            {
-              text: "Optoin 5",
-              value: "5"
-            },
-            {
-              text: "Optoin 6",
-              value: "6"
-            },
-            {
-              text: "Optoin 7",
-              value: "7"
             }
           ]
         }
