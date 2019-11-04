@@ -3,7 +3,15 @@ import React from "react";
 import { ScrollView } from "react-native";
 import { useDimensions } from "react-native-hooks";
 import { useNavigation } from "react-navigation-hooks";
-import { BottomNavigation, Button, Form, Header, View, Camera } from "./libs";
+import {
+  BottomNavigation,
+  Button,
+  Form,
+  Header,
+  View,
+  Camera,
+  Location
+} from "./libs";
 import { FormFieldProps } from "./libs/ui/Form";
 
 export const menus = [
@@ -65,7 +73,8 @@ export default observer(() => {
       birth: "",
       gender: "",
       language: ["ID"],
-      photo: ""
+      photo: "",
+      location: null
     },
     check: false
   });
@@ -213,6 +222,11 @@ export default observer(() => {
       key: "photo",
       label: "Photo",
       type: "camera"
+    },
+    {
+      key: "location",
+      label: "Location",
+      type: "location"
     }
   ];
   return (

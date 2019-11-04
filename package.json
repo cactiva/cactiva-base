@@ -12,6 +12,7 @@
     "@react-navigation/web": "^1.0.0-alpha.9",
     "expo": "^35.0.0",
     "expo-camera": "^7.0.0",
+    "expo-location": "^7.0.0",
     "mobx": "^5.13.0",
     "mobx-react-lite": "^1.4.1",
     "modal-react-native-web": "^0.2.0",
