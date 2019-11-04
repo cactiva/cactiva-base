@@ -1,10 +1,10 @@
 import { observer, useObservable } from "mobx-react-lite";
 import React from "react";
-import { ScrollView, Text, TouchableOpacity, TextInput } from "react-native";
+import { ScrollView } from "react-native";
 import { useDimensions } from "react-native-hooks";
 import { useNavigation } from "react-navigation-hooks";
-import { BottomNavigation, Form, Header, View, DefaultTheme } from "./libs";
-import { FormFieldProps } from "./libs/ui/form";
+import { BottomNavigation, Button, Form, Header, View, Camera } from "./libs";
+import { FormFieldProps } from "./libs/ui/Form";
 
 export const menus = [
   {
@@ -62,8 +62,12 @@ export default observer(() => {
       age: 20,
       select: "",
       message: "",
-      birthDate: ""
-    }
+      birth: "",
+      gender: "",
+      language: ["ID"],
+      photo: ""
+    },
+    check: false
   });
 
   const setValue = (value, key) => {
@@ -150,12 +154,67 @@ export default observer(() => {
       type: "number"
     },
     {
+      key: "birth",
+      label: "Birth",
+      type: "date"
+    },
+    {
       key: "message",
       label: "Message",
       type: "multiline"
+    },
+    {
+      key: "gender",
+      label: "Gender",
+      type: "radio-group",
+      option: {
+        radio: {
+          items: [
+            {
+              text: "Male",
+              value: "male"
+            },
+            {
+              text: "Female",
+              value: "female"
+            }
+          ]
+        }
+      }
+    },
+    {
+      key: "language",
+      label: "Language",
+      type: "checkbox-group",
+      option: {
+        checkbox: {
+          items: [
+            {
+              text: "Indonesia",
+              value: "ID"
+            },
+            {
+              text: "English",
+              value: "EN"
+            },
+            {
+              text: "Japang",
+              value: "JP"
+            },
+            {
+              text: "Mandarin",
+              value: "MD"
+            }
+          ]
+        }
+      }
+    },
+    {
+      key: "photo",
+      label: "Photo",
+      type: "camera"
     }
   ];
-
   return (
     <View safeAreaView={true}>
       <View
@@ -172,6 +231,8 @@ export default observer(() => {
           <View
             style={{
               display: "flex",
+              alignItems: "stretch",
+              justifyContent: "center",
               flex: 1,
               margin: 20,
               marginTop: 10,
@@ -182,29 +243,20 @@ export default observer(() => {
               data={meta.data}
               fields={fields}
               setValue={setValue}
+              style={{ marginBottom: 30 }}
+            />
+            <Button
+              label="Save"
+              iconStart={{
+                source: "Entypo",
+                name: "home",
+                size: 20,
+                color: "#fff"
+              }}
               style={{
-                marginBottom: 20
+                maxWidth: 350
               }}
             />
-
-            <TouchableOpacity
-              style={{
-                borderRadius: 4,
-                backgroundColor: DefaultTheme.primary
-              }}
-            >
-              <Text
-                style={{
-                  color: "#fff",
-                  padding: 10,
-                  textAlign: "center",
-                  paddingTop: 15,
-                  paddingBottom: 15
-                }}
-              >
-                Save
-              </Text>
-            </TouchableOpacity>
           </View>
         </ScrollView>
         <BottomNavigation menus={menus} activePath="Dashboard" />
