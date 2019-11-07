@@ -8,11 +8,12 @@ export default observer(() => {
   return (
     <View
       style={{
+        flex: 1,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        height: dim.height
+        backgroundColor: "red"
       }}
     >
       <Image

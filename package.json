@@ -8,8 +8,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@eva-design/eva": "^1.1.0-beta.1",
     "@react-navigation/web": "^1.0.0-alpha.9",
+    "@types/react-native-snap-carousel": "^3.7.4",
     "expo": "^35.0.0",
     "expo-camera": "^7.0.0",
     "expo-location": "^7.0.0",
@@ -24,8 +24,7 @@
     "react-native-hooks": "cactiva/react-native-hooks",
     "react-native-reanimated": "~1.2.0",
     "react-native-screens": "~1.0.0-alpha.23",
-    "react-native-snap-carousel": "^3.8.1",
-    "react-native-ui-kitten": "cactiva/react-native-ui-kitten",
+    "react-native-snap-carousel": "^3.8.4",
     "react-native-unimodules": "~0.5.4",
     "react-native-web": "^0.11.7",
     "react-navigation": "^4.0.7",
