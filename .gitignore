@@ -3,6 +3,7 @@
 .DS_Store
 .history
 
+
 # Xcode
 #
 build/
@@ -57,3 +58,4 @@ buck-out/
 *.jsbundle
 
 src/libs
+backend
