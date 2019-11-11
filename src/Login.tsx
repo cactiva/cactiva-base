@@ -1,4 +1,4 @@
-import { Button, Field, Form, Input, View } from "@src/libs";
+import { Button, Field, Form, Image, Input, View } from "@src/libs";
 import { observer, useObservable } from "mobx-react-lite";
 import React from "react";
 import { Text } from "react-native";
@@ -12,50 +12,82 @@ export default observer(() => {
     data: {}
   });
 
+  const loginProcess = () => {
+    if ((meta.data as any).username == "sales") {
+      nav.navigate("sales/Main");
+    } else if ((meta.data as any).username == "spg") {
+      nav.navigate("spg/Main");
+    } else {
+      nav.navigate("smd/Main");
+    }
+  };
+
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
-      <Form
+    <View type={"ScrollView"}>
+      <View
         style={{
           flexDirection: "column",
           alignItems: "stretch",
-          justifyContent: "center",
-          width: 400,
-          backgroundColor: "#f0f7fa",
-          borderRadius: 4
+          justifyContent: "flex-start",
+          flexGrow: 1,
+          flexShrink: 1,
+          display: "flex",
+          padding: 10,
+          backgroundColor: ""
         }}
-        data={meta.data}
-        setValue={(value, path) => {
-          meta.data[path] = value;
-        }}
+        type={"View"}
       >
-        <Field label={"Username"} path={"username"}>
-          <Input
-            placeholder={"Input"}
-            fieldType={"input"}
-            type={"text"}
-          ></Input>
-        </Field>
-        <Field label={"Password"} path={"password"}>
-          <Input
-            placeholder={"Input"}
-            fieldType={"input"}
-            type={"text"}
-          ></Input>
-        </Field>
-        <Button
+        <Image
           style={{
-            width: 100
+            height: 230,
+            width: 230,
+            alignSelf: "center",
+            display: "flex",
+            marginTop: 50,
+            marginBottom: 50
+          }}
+          source={require("@src/assets/images/IMGBLOG.png")}
+        ></Image>
+        <Form
+          style={{
+            flexDirection: "column",
+            alignItems: "stretch",
+            justifyContent: "center",
+            backgroundColor: "",
+            borderRadius: 4,
+            paddingBottom: 300,
+            flexGrow: 1
+          }}
+          data={meta.data}
+          setValue={(value, path) => {
+            meta.data[path] = value;
           }}
         >
-          <Text>Button</Text>
-        </Button>
-      </Form>
+          <Field label={"Username"} path={"username"} isRequired={true}>
+            <Input fieldType={"input"} type={"text"}></Input>
+          </Field>
+          <Field label={"Password"} path={"password"} isRequired={true}>
+            <Input fieldType={"input"} type={"password"}></Input>
+          </Field>
+          <Button
+            style={{
+              width: 100,
+              alignSelf: "flex-end",
+              marginTop: 30
+            }}
+            onPress={loginProcess}
+          >
+            <Text
+              style={{
+                color: "#fafafa",
+                fontWeight: "bold"
+              }}
+            >
+              Login
+            </Text>
+          </Button>
+        </Form>
+      </View>
     </View>
   );
 });

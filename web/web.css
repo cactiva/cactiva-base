@@ -2,3 +2,13 @@ input,
 textarea {
   outline: none !important;
 }
+
+
+.mobile-root {
+  width: 450px;
+  height:100%;
+  position: absolute;
+  left:calc(50% - 225px);
+  top:0;
+  bottom:0;
+}
