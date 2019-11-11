@@ -16,6 +16,8 @@ export default observer(() => {
   const nav = useNavigation();
   const meta = useObservable({});
 
+  if (!smd.selectedPlan) return null;
+
   return (
     <View
       type={"SafeAreaView"}
