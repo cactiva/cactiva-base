@@ -1,0 +1,12 @@
+{
+  "name": "base",
+  "backend": {"port": "10000", "host": "localhost"},
+  "hasura": {"secret": "hasura123", "port": "11000"},
+  "db": {
+    "port": "5432",
+    "host": "localhost",
+    "user": "postgres",
+    "password": "",
+    "database": "postgres"
+  }
+}
