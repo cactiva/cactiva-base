@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <title>Cactiva Base App</title>
+    <link rel="shortcut icon" href="favicon.png" />
     <!-- <title>%WEB_TITLE%</title> -->
     <!-- TODO: Bacon: build a reliable system for testing these style changes -->
     <style>
@@ -56,11 +57,11 @@
   <body>
     <noscript>%NO_SCRIPT%</noscript>
     <div id="%ROOT_ID%"></div>
-
+    <div id="root-portal"></div>
     <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function() {
-          navigator.serviceWorker.register("/service-worker.js");
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js');
         });
       }
     </script>
