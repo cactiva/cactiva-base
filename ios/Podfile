@@ -2,8 +2,8 @@ platform :ios, '10.0'
 
 require_relative '../node_modules/react-native-unimodules/cocoapods'
 
-target 'base' do
-  # Pods for base
+target 'cactiva' do
+  # Pods for cactiva
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'CxxBridge',

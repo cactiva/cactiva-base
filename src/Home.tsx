@@ -25,6 +25,7 @@ export default observer(() => {
       <Text
         style={{
           fontSize: 18,
+          fontFamily: 'NotoSans-Regular',
         }}>
         Welcome to Cactiva Base App!
       </Text>

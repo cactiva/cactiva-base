@@ -99,7 +99,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.base"
+        applicationId "com.cactiva"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -139,7 +139,14 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-screens')
+    implementation(project(':react-native-maps')){
+       exclude group: 'com.google.android.gms', module: 'play-services-base'
+       exclude group: 'com.google.android.gms', module: 'play-services-maps'
+   }
+    implementation 'com.google.android.gms:play-services-base:10.0.1'
+   implementation 'com.google.android.gms:play-services-maps:10.0.1'
+    implementation project(':react-native-maps')
+   implementation project(':react-native-screens')
     implementation project(':react-native-reanimated')
     implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])

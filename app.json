@@ -1,17 +1,39 @@
 {
-  "name": "base",
-  "displayName": "base",
+  "name": "cactiva",
+  "displayName": "cactiva",
   "expo": {
-    "name": "base",
+    "name": "cactiva",
     "slug": "expo-template-bare",
     "privacy": "unlisted",
     "sdkVersion": "35.0.0",
     "version": "1.0.0",
     "entryPoint": "node_modules/expo/AppEntry.js",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ]
+    "platforms": ["ios", "android", "web"],
+    "icon": "src/assets/images/cactiva-logo.png",
+    "ios": {
+      "bundleIdentifier": "com.andromedia.cactiva"
+    },
+    "android": {
+      "package": "com.andromedia.cactiva",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyD-6dn4tHXYdHJNZLGmQvvNSgL4elJPGSY"
+        }
+      }
+    },
+    "orientation": "portrait",
+    "primaryColor": "#000000",
+    "notification": {
+      "icon": "src/assets/images/cactiva-logo.png",
+      "color": "#000000"
+    },
+    "loading": {
+      "icon": "src/assets/images/cactiva-logo.png",
+      "backgroundColor": "#fff",
+      "hideExponentText": true
+    },
+    "splash": {
+      "backgroundColor": "#fff"
+    }
   }
 }

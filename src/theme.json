@@ -11,5 +11,7 @@
     "medium": "#a2a4ab",
     "light": "#f1f1f1",
     "background": "#f5f6f9"
-  }
+  },
+  "fontSize": 14,
+  "fontFamily": "NotoSans-Regular"
 }

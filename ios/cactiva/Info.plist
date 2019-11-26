@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>base</string>
+	<string>cactiva</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -57,26 +57,26 @@
 		</dict>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Allow base to access your calendar</string>
+	<string>Allow cactiva to access your calendar</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow base to use the camera</string>
+	<string>Allow cactiva to use the camera</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Allow base experiences to access your contacts</string>
+	<string>Allow cactiva experiences to access your contacts</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow base to use your location</string>
+	<string>Allow cactiva to use your location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Allow base to use your location</string>
+	<string>Allow cactiva to use your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow base to use your location</string>
+	<string>Allow cactiva to use your location</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Allow base to access your microphone</string>
+	<string>Allow cactiva to access your microphone</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Allow base to access your device's accelerometer</string>
+	<string>Allow cactiva to access your device's accelerometer</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Give base periences permission to save photos</string>
+	<string>Give cactiva periences permission to save photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Give base periences permission to access your photos</string>
+	<string>Give cactiva periences permission to access your photos</string>
 	<key>NSRemindersUsageDescription</key>
-	<string>Allow base to access your reminders</string>
+	<string>Allow cactiva to access your reminders</string>
 </dict>
 </plist>
