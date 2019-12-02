@@ -1,5 +1,5 @@
 {
-  "device": "mobile",
+  "device": "desktop",
   "colors": {
     "primary": "#EC1C24",
     "secondary": "#24d6ea",
@@ -13,5 +13,5 @@
     "background": "#f5f6f9"
   },
   "fontSize": 14,
-  "fontFamily": "NotoSans-Regular"
+  "fontFamily": "SourceSansPro-Regular"
 }
