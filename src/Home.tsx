@@ -3,21 +3,24 @@ import React, { useEffect } from "react";
 import { useDimensions } from "react-native-hooks";
 import {
   capitalizeFLetter,
-  ConfigTableProps,
   Image,
   randString,
   Table,
+  TableColumn,
   Text,
   uuid,
   View,
-  Crud
-} from "./libs";
-import { FormFieldProps } from "./libs/ui/FormJson";
-import { CrudProps, ConfigCrudProps } from "./libs/ui/Crud";
+  TableHead,
+  TableRow
+} from "@src/libs";
 
 export default observer(() => {
   const dim = useDimensions().window;
-  const meta = useObservable({ list: [], p: 0, loading: false });
+  const meta = useObservable({
+    list: [],
+    p: 0,
+    loading: false
+  });
   const list = useObservable([
     {
       id: "1",
@@ -104,7 +107,7 @@ export default observer(() => {
       gender: "male"
     }
   ]);
-  const field: FormFieldProps[] = [
+  const field = [
     {
       fieldType: "Input",
       label: "Full Name",
@@ -157,7 +160,7 @@ export default observer(() => {
       }
     }
   ];
-  const configTable: ConfigCrudProps = {
+  const configTable = {
     primary: "id",
     fields: [
       {
@@ -237,7 +240,7 @@ export default observer(() => {
   };
   const generateData = prefix => {
     const fakeData = [];
-    for (let i = 1; i <= 50; ++i) {
+    for (let i = 1; i <= 500; ++i) {
       fakeData.push({
         id: `${prefix}${i}`,
         fullname: randString(10),
@@ -250,13 +253,9 @@ export default observer(() => {
   };
   useEffect(() => {
     meta.loading = true;
-    const fakeData = generateData(meta.p);
-    setTimeout(() => {
-      meta.list = fakeData;
-      meta.loading = false;
-    }, 1000);
+    meta.list = generateData(meta.p);
+    meta.loading = false;
   }, []);
-
   return (
     <View
       type={"SafeAreaView"}
@@ -266,68 +265,165 @@ export default observer(() => {
         alignItems: "stretch",
         justifyContent: "center",
         height: dim.height,
-        margin: 30,
         flexGrow: 1,
         flexShrink: 1
       }}
     >
       <View
+        type={"ScrollView"}
         style={{
           flexGrow: 1,
-          flexShrink: 1
+          flexDirection: "column",
+          margin: 30
         }}
       >
         <View
           style={{
-            alignItems: "center",
-            marginBottom: 30
+            flexGrow: 1,
+            flexShrink: 1
           }}
         >
-          <Image
-            source={require("@src/assets/images/cactiva-logo.png")}
+          <View
             style={{
-              height: 80,
-              width: 80,
-              margin: 15
-            }}
-          />
-          <Text
-            style={{
-              fontSize: 18,
-              fontFamily: "NotoSans-Regular"
+              alignItems: "center",
+              marginBottom: 30
             }}
           >
-            Welcome to Cactiva Base App!
+            <Image
+              source={require("@src/assets/images/cactiva-logo.png")}
+              style={{
+                height: 80,
+                width: 80,
+                margin: 15
+              }}
+            />
+            <Text
+              style={{
+                fontSize: 18,
+                fontFamily: "NotoSans-Regular"
+              }}
+            >
+              Welcome to Cactiva Base App!
+            </Text>
+          </View>
+          <Text style={{ padding: 5, fontSize: 20 }}>Table Column Auto</Text>
+          <Table
+            columnMode={"auto"}
+            keyPath={"id"}
+            data={meta.list}
+            style={{
+              marginBottom: 50,
+              maxHeight: 300
+            }}
+            onSort={(path, sort) => console.log("p:", path, "s:", sort)}
+          ></Table>
+          <Text style={{ padding: 5, fontSize: 20 }}>Table Column Manual</Text>
+          <Table
+            columnMode={"manual"}
+            keyPath={"id"}
+            data={meta.list}
+            style={{
+              marginBottom: 50,
+              maxHeight: 300
+            }}
+            onSort={(path, sort) => console.log("p:", path, "s:", sort)}
+          >
+            <TableColumn
+              path={"fullname"}
+              title={"Fullname"}
+              width={150}
+              onPress={(item, path) => console.log(item, path)}
+            ></TableColumn>
+            <TableColumn path={"email"} title={"Email"}></TableColumn>
+            <TableColumn path={"phone"} title={"Phone"}></TableColumn>
+            <TableColumn path={"gender"} title={"Gender"}>
+              <CustomComponent />
+            </TableColumn>
+          </Table>
+          <Text style={{ padding: 5, fontSize: 20 }}>
+            Table Column Manual with Custom Header and Row
           </Text>
-        </View>
-        <View type={"ScrollView"} horizontal={true} style={{ flexGrow: 1 }}>
-          {/* <Table
+          <Table
+            columnMode={"manual"}
+            keyPath={"id"}
             data={meta.list}
-            config={configTable}
             style={{
-              flexGrow: 1
+              marginBottom: 50,
+              maxHeight: 300
             }}
-            loading={meta.loading}
-            onScrollEnd={() => {
-              meta.loading = true;
-              meta.p += 1;
-              const data = generateData(meta.p);
-              setTimeout(() => {
-                const list = [...meta.list, ...data];
-                meta.list = list;
-                meta.loading = false;
-              }, 1000);
-            }}
-          ></Table> */}
-          <Crud
-            data={meta.list}
-            config={configTable}
-            style={{
-              flexGrow: 1
-            }}
-          ></Crud>
+          >
+            <TableHead
+              style={{
+                backgroundColor: "#586dff"
+              }}
+            >
+              <TableColumn
+                path={"fullname"}
+                title={"Fullname"}
+                width={150}
+              ></TableColumn>
+              <TableColumn path={"email"} title={"Email"}>
+                <CustomHeaderComponent />
+              </TableColumn>
+              <TableColumn path={"gender"} title={"Gender"}></TableColumn>
+            </TableHead>
+            <TableRow
+              style={{
+                backgroundColor: "#f6f7ff"
+              }}
+              onPress={item => console.log(item)}
+            >
+              <TableColumn path={"fullname"} title={"Fullname"} width={150}>
+                <CustomComponent />
+              </TableColumn>
+              <TableColumn path={"email"} title={"Email"}></TableColumn>
+              <TableColumn path={"gender"} title={"Gender"}></TableColumn>
+            </TableRow>
+          </Table>
         </View>
       </View>
+    </View>
+  );
+});
+
+const CustomComponent = observer(({ item, path }: any) => {
+  return (
+    <View
+      style={{
+        padding: 4
+      }}
+    >
+      <Text
+        style={{
+          backgroundColor: "green",
+          borderRadius: 10,
+          color: "#fff",
+          padding: 4
+        }}
+      >
+        {item[path]}
+      </Text>
+    </View>
+  );
+});
+
+const CustomHeaderComponent = observer(({ item, path }: any) => {
+  return (
+    <View
+      style={{
+        padding: 4
+      }}
+    >
+      <Text
+        style={{
+          backgroundColor: "red",
+          borderRadius: 10,
+          color: "#fff",
+          padding: 4
+        }}
+      >
+        {item[path]}
+      </Text>
     </View>
   );
 });

@@ -1,8 +1,8 @@
 {
   "device": "desktop",
   "colors": {
-    "primary": "#EC1C24",
-    "secondary": "#24d6ea",
+    "primary": "#3e64ff",
+    "secondary": "#5edfff",
     "tertiary": "#7e57ff",
     "success": "#28e070",
     "warning": "#ffd31a",
