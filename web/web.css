@@ -12,3 +12,20 @@ textarea {
   top:0;
   bottom:0;
 }
+
+#root {
+  display:flex;
+  width:100%;
+  height:100%;
+}
+
+#root >div, 
+#root >div > div {
+  flex:1;
+  display:flex;
+}
+
+.web-root {
+  flex:1;
+  display:flex;
+} 
