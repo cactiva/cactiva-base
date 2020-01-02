@@ -1,0 +1,11 @@
+{
+    "verbose": false,
+    "ext": "ts js json yaml",
+    "watch": [
+        "libs/**/*.ts",
+        "libs/**/*.yaml",
+        "controllers/**/*.ts"
+    ],
+    "ignore": [],
+    "exec": "node --require ./tshook.js  ./libs/start.ts"
+}

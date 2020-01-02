@@ -11,7 +11,8 @@ import {
   uuid,
   View,
   TableHead,
-  TableRow
+  TableRow,
+  Icon
 } from "@src/libs";
 
 export default observer(() => {
@@ -366,6 +367,9 @@ export default observer(() => {
                 <CustomHeaderComponent />
               </TableColumn>
               <TableColumn path={"gender"} title={"Gender"}></TableColumn>
+              <TableColumn width={100}>
+                <Text>Action</Text>
+              </TableColumn>
             </TableHead>
             <TableRow
               style={{
@@ -378,6 +382,24 @@ export default observer(() => {
               </TableColumn>
               <TableColumn path={"email"} title={"Email"}></TableColumn>
               <TableColumn path={"gender"} title={"Gender"}></TableColumn>
+              <TableColumn width={100}>
+                <View
+                  style={{
+                    flexDirection: "row"
+                  }}
+                >
+                  <Icon
+                    source={"Ionicons"}
+                    name={"ios-add"}
+                    size={20}
+                    style={{
+                      flexGrow: 0,
+                      backgroundColor: "green",
+                      padding: 6
+                    }}
+                  ></Icon>
+                </View>
+              </TableColumn>
             </TableRow>
           </Table>
         </View>
