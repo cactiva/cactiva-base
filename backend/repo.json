@@ -1,0 +1,14 @@
+{
+  "root": "/../../src/app/repo/",
+  "folder": {
+    "profile": {
+      "role": [
+        "sales"
+      ],
+      "fileType": [
+        "gif"
+      ],
+      "maxSize": 5242880
+    }
+  }
+}
